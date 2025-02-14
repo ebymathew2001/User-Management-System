@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .body{
+            color:black;
+        }
+
+        .signup-container  {
+            max-width: 500px; /* Limiting max width without fixed width */
+            padding: 60px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            background-color:#fff;
+            margin-top: 14%;
+        }
+        .signup{
+            text-align: center;
+            font-size: 1.7rem;
+            margin-left: 5%;
+        }
+        .label1{
+          margin-top:6%;
+        }
+        .label2{
+            margin-top:3%;
+
+        }
+        .label3{
+            margin-top:3%;
+
+        }
+
+        .btn.btn-primary.btn-block{
+            width: 50%;
+
+        }
+        .button1{
+           display: flex;
+            justify-content: center;
+            margin-top:4%;
+            margin-left: 9%;
+
+        }
+
+
+
+        #password{
+            margin-left:1.5%;
+
+        }
+        #email{
+            margin-left:12%;
+        }
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container d-flex justify-content-center">
+    <div class="signup-container">
+    <h2 class="signup">Signup</h2>
+<form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+    <div class="label1">
+        <label for="username">Username:</label>
+        <input type="text" th:field="*{username}" id="username" required>
+    </div>
+
+    <div class="label2" >
+        <label for="password">Password:</label>
+        <input type="password" th:field="*{password}" id="password" required>
+    </div>
+    <div class="label3">
+        <label for="email">Email:</label>
+        <input type="email" th:field="*{email}" id="email" required>
+    </div>
+    <div class="button1">
+        <button type="submit" class="btn btn-primary btn-block">Signup</button>
+    </div>
+</form>
+        <div th:if="${success}" style="color:green;">
+            <p th:text="${success}"></p>
+        </div>
+        <div th:if="${error}" style="color:red">
+      <p th:text="${error}"></p>
+        </div>
+</div>
+</div>
+</body>
+</html>
